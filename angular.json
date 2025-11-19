@@ -1,0 +1,156 @@
+{
+    "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+    "cli": {
+        "analytics": false
+    },
+    "newProjectRoot": "projects",
+    "projects": {
+        "web-audio-conference-2025": {
+            "architect": {
+                "build": {
+                    "builder": "@angular-builders/custom-esbuild:application",
+                    "configurations": {
+                        "development": {
+                            "extractLicenses": false,
+                            "namedChunks": true,
+                            "optimization": false,
+                            "sourceMap": true
+                        },
+                        "production": {
+                            "budgets": [
+                                {
+                                    "maximumError": "1mb",
+                                    "maximumWarning": "500kb",
+                                    "type": "initial"
+                                },
+                                {
+                                    "maximumError": "4kb",
+                                    "maximumWarning": "2kb",
+                                    "type": "anyComponentStyle"
+                                }
+                            ],
+                            "fileReplacements": [
+                                {
+                                    "replace": "src/environments/environment.ts",
+                                    "with": "src/environments/environment.prod.ts"
+                                }
+                            ],
+                            "indexHtmlTransformer": "config/esbuild/transform.mjs",
+                            "outputHashing": "all",
+                            "sourceMap": {
+                                "hidden": true,
+                                "scripts": true,
+                                "styles": false
+                            }
+                        }
+                    },
+                    "defaultConfiguration": "production",
+                    "options": {
+                        "assets": ["src/assets"],
+                        "browser": "src/main.ts",
+                        "i18nMissingTranslation": "error",
+                        "index": "src/index.html",
+                        "outputPath": "build/web-audio-conference-2025",
+                        "polyfills": ["zone.js"],
+                        "prerender": true,
+                        "scripts": ["hammerjs/hammer.js"],
+                        "server": "src/main.server.ts",
+                        "serviceWorker": "src/ngsw-config.json",
+                        "ssr": {
+                            "entry": "src/server.ts"
+                        },
+                        "styles": ["prismjs/themes/prism-okaidia.css", "src/styles/styles.scss"],
+                        "tsConfig": "src/tsconfig.json"
+                    }
+                },
+                "extract-i18n": {
+                    "builder": "@angular-devkit/build-angular:extract-i18n",
+                    "options": {
+                        "buildTarget": "web-audio-conference-2025:build"
+                    }
+                },
+                "lint": {
+                    "builder": "@angular-eslint/builder:lint",
+                    "configurations": {
+                        "test": {
+                            "eslintConfig": "config/eslint/test.json",
+                            "lintFilePatterns": ["test/**/*.html", "test/**/*.ts"]
+                        }
+                    },
+                    "options": {
+                        "eslintConfig": "config/eslint/src.json",
+                        "lintFilePatterns": ["src/**/*.html", "src/**/*.ts"]
+                    }
+                },
+                "serve": {
+                    "builder": "@angular-builders/custom-esbuild:dev-server",
+                    "configurations": {
+                        "development": {
+                            "buildTarget": "web-audio-conference-2025:build:development"
+                        },
+                        "production": {
+                            "buildTarget": "web-audio-conference-2025:build:production"
+                        }
+                    },
+                    "defaultConfiguration": "development",
+                    "options": {
+                        "headers": {
+                            "Cross-Origin-Embedder-Policy": "require-corp",
+                            "Cross-Origin-Opener-Policy": "same-origin"
+                        },
+                        "port": 6677
+                    }
+                },
+                "test": {
+                    "builder": "@angular-devkit/build-angular:karma",
+                    "options": {
+                        "assets": ["src/assets"],
+                        "include": ["../test/unit/**/*.ts"],
+                        "karmaConfig": "config/karma/config.js",
+                        "polyfills": ["zone.js", "zone.js/testing"],
+                        "scripts": ["hammerjs/hammer.js"],
+                        "tsConfig": "test/unit/tsconfig.json"
+                    }
+                }
+            },
+            "prefix": "wac",
+            "projectType": "application",
+            "root": "",
+            "schematics": {},
+            "sourceRoot": "src"
+        }
+    },
+    "schematics": {
+        "@schematics/angular:application": {
+            "strict": true
+        },
+        "@schematics/angular:class": {
+            "skipTests": true
+        },
+        "@schematics/angular:component": {
+            "changeDetection": "OnPush",
+            "inlineStyle": false,
+            "inlineTemplate": false,
+            "prefix": "wac",
+            "skipTests": true,
+            "style": "scss"
+        },
+        "@schematics/angular:directive": {
+            "prefix": "wac",
+            "skipTests": true
+        },
+        "@schematics/angular:interface": {
+            "prefix": "I"
+        },
+        "@schematics/angular:module": {
+            "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+            "skipTests": true
+        },
+        "@schematics/angular:service": {
+            "skipTests": true
+        }
+    },
+    "version": 1
+}

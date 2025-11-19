@@ -1,0 +1,13 @@
+<h2>Let's hack it! (slightly better)</h2>
+
+<wac-prism language="javascript" ngPreserveWhitespaces
+    ><!-- htmlmin:ignore --><!-- prettier-ignore -->// ...
+process () &lbrace;
+    while (Atomics.load(this.isBlocked, 0) === 1) &lbrace;
+        // This can be unblocked again.
+    &rbrace;
+
+    return true;
+&rbrace;
+// ...<!-- htmlmin:ignore --></wac-prism
+>

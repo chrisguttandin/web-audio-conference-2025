@@ -1,0 +1,12 @@
+<h2>A simple example</h2>
+<wac-prism language="javascript" ngPreserveWhitespaces
+    ><!-- htmlmin:ignore --><!-- prettier-ignore -->const offlineAudioContext = new OfflineAudioContext(
+    &lbrace; length: 256, sampleRate: 96000 &rbrace;
+);
+const oscillatorNode = new OscillatorNode(
+    offlineAudioContext,
+    &lbrace; frequency: 375 &rbrace;
+);
+oscillatorNode.connect(offlineAudioContext.destination);
+oscillatorNode.start();<!-- htmlmin:ignore --></wac-prism
+>

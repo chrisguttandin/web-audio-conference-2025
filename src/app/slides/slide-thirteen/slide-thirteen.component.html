@@ -1,0 +1,13 @@
+<h2>Let's hack it!</h2>
+
+<wac-prism language="javascript" ngPreserveWhitespaces
+    ><!-- htmlmin:ignore --><!-- prettier-ignore -->// ...
+constructor () &lbrace;
+    super();
+    this.isBlocked = false;
+    this.port.onmessage = (&lbrace; data &rbrace;) =&gt; &lbrace;
+        this.isBlocked = data;
+    &rbrace;
+&rbrace;
+// ...<!-- htmlmin:ignore --></wac-prism
+>

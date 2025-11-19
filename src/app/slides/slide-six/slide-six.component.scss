@@ -1,0 +1,24 @@
+.stage {
+    height: 35vw;
+    position: relative;
+    width: 100%;
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .stage {
+        height: calc(35vh * 16 / 9);
+        width: calc(92.2vh * 16 / 9);
+    }
+}
+
+.stage-prop {
+    display: block;
+    margin: 0 auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.label {
+    font-family: monospace;
+    font-size: 24px;
+}

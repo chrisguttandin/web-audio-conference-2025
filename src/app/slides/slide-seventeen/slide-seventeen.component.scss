@@ -1,0 +1,11 @@
+hr {
+    border: 0.2vw solid #999;
+    margin: 2vw 0;
+}
+
+@media (min-aspect-ratio: 16/9) {
+    hr {
+        border: calc(0.2vh * 16 / 9) solid #999;
+        margin: calc(2vh * 16 / 9) 0;
+    }
+}
