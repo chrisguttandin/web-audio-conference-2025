@@ -1,0 +1,24 @@
+button {
+    display: block;
+    font-size: 35%;
+    height: 4vw;
+    width: 16vw;
+}
+
+span {
+    display: block;
+    font-family: monospace;
+    font-size: 50%;
+    margin: 2vw 0;
+}
+
+@media (min-aspect-ratio: 16/9) {
+    button {
+        height: calc(4vh * 16 / 9);
+        width: calc(16vh * 16 / 9);
+    }
+
+    span {
+        margin: calc(2vh * 16 / 9) 0;
+    }
+}
