@@ -130,5 +130,5 @@
         "test:smoke": "npx playwright install --with-deps && IS_SMOKE_TEST=true npx playwright test --config config/playwright/config.ts && npx hint --telemetry=off https://chrisguttandin.github.io/web-audio-conference-2025",
         "test:unit": "npx ng test --watch false"
     },
-    "version": "0.0.0"
+    "version": "1.0.0"
 }
